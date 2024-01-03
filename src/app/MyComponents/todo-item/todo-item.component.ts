@@ -13,7 +13,7 @@ export class TodoItemComponent {
   @Output() todoDelete: EventEmitter<Todo> = new EventEmitter();
 
   onClick(todo: Todo){
-    
+    this.todoDelete.emit(todo);
     console.log("onClick has been clicked");
   }
 }
