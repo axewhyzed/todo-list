@@ -1,8 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { TodosComponent } from './MyComponents/todos/todos.component';
-import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',

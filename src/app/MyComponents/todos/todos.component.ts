@@ -12,39 +12,33 @@ import { AddTodoComponent } from '../add-todo/add-todo.component';
   styleUrl: './todos.component.css'
 })
 export class TodosComponent{
+  localItem:string = "";
   todos:Todo[] = [];
 
-  constructor(){
-    this.todos = [
-      {
-        sno:1,
-        title: "This is title",
-        desc: "Description",
-        active: true
-      },
-      {
-        sno:2,
-        title: "This is title 2",
-        desc: "Description 2",
-        active: true
-      },
-      {
-        sno:3,
-        title: "This is title 3",
-        desc: "Description 3",
-        active: true
-      },
-    ]
+  ngOnInit(){
+    this.loadTodos();
+  }
+
+  loadTodos(){
+    this.localItem = localStorage.getItem("todos") ?? ""; // Use empty string as default if null
+    if(this.localItem == null){
+      this.todos = [];
+    }
+    else{
+      this.todos = JSON.parse(this.localItem);
+    }
   }
 
   deleteTodo(todo:Todo){
     console.log(todo);
     const index = this.todos.indexOf(todo);
     this.todos.splice(index, 1);
+    localStorage.setItem("todos", JSON.stringify(this.todos));
   }
 
   addTodo(todo:Todo){
     console.log(todo);
     this.todos.push(todo);
+    localStorage.setItem("todos", JSON.stringify(this.todos));
   }
 }
