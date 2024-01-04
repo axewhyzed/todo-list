@@ -1,9 +1,9 @@
 <div class="my-3">
-  <h5 [ngClass]="{'strike': !todo.active, 'second': true, 'third': false}">{{ todo.title }}</h5>
-  <h6>{{ todo.desc }}</h6>
+  <h5 [ngClass]="{'strike': !todo.active}">{{ todo.title }}</h5>
+  <p [ngClass]="{'strike': !todo.active}">{{ todo.desc }}</p>
   <div class="form-check">
-    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" (click)="onCheckboxClick(todo)">
-    <label class="form-check-label" for="flexCheckDefault">
+    <input class="form-check-input" type="checkbox" value="" id="todo{{i}}" (click)="onCheckboxClick(todo)" [checked]="!todo.active">
+    <label class="form-check-label" for="todo{{i}}">
       Mark As Done
     </label>
   </div>

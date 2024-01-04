@@ -11,6 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class TodoItemComponent {
   @Input() todo!: Todo;
+  @Input() i: number = 0;
   @Output() todoDelete: EventEmitter<Todo> = new EventEmitter();
   @Output() todoCheckbox: EventEmitter<Todo> = new EventEmitter();
 
