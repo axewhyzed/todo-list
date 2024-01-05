@@ -1,12 +1,12 @@
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
+import { RouterModule, RouterOutlet } from '@angular/router';
 import { TodosComponent } from './MyComponents/todos/todos.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, TodosComponent],
+  imports: [CommonModule, RouterOutlet, TodosComponent, RouterModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
